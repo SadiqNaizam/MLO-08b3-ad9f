@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -52,6 +53,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          foreground: 'hsl(var(--success-foreground))'
+        },
+        primaryText: 'hsl(var(--foreground))', // PRD: primaryText
+        secondaryText: 'hsl(var(--muted-foreground))', // PRD: secondaryText
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -64,10 +71,15 @@ export default {
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+        DEFAULT: 'calc(var(--radius) - 2px)', // 0.375rem, PRD default: rounded-md
+				lg: 'var(--radius)', // 0.5rem, PRD buttons: rounded-lg
+				md: 'calc(var(--radius) - 2px)', // 0.375rem
+				sm: 'calc(var(--radius) - 4px)', // 0.25rem
+        full: '9999px', // PRD effects: rounded-full
 			},
+      fontFamily: {
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
