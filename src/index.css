@@ -1,57 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 17% 98%; /* PRD: #F8F9FA */
+    --foreground: 210 11% 16%; /* PRD: primaryText #212529 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* PRD: surface #FFFFFF */
+    --card-foreground: 210 11% 16%; /* PRD: primaryText #212529 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* PRD: surface #FFFFFF */
+    --popover-foreground: 210 11% 16%; /* PRD: primaryText #212529 */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217 98% 52%; /* PRD: accent #0D6EFD */
+    --primary-foreground: 210 40% 98%; /* Existing light color for text on primary */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 152 69% 31%; /* PRD: accentSecondary #198754 */
+    --secondary-foreground: 0 0% 100%; /* White text for dark green secondary */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96.1%; /* Existing light gray, kept as PRD doesn't specify a muted background */
+    --muted-foreground: 210 8% 46%; /* PRD: secondaryText #6C757D */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%; /* Existing light gray for Shadcn's subtle accent state background */
+    --accent-foreground: 210 11% 16%; /* Dark text (primaryText) for light accent background */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 354 70% 54%; /* PRD: error #DC3545 */
+    --destructive-foreground: 210 40% 98%; /* Existing light color for text on destructive */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 14% 89%; /* PRD: border #DEE2E6 */
+    --input: 210 14% 89%; /* Same as border */
+    --ring: 217 98% 52%; /* PRD: accent #0D6EFD for focus rings */
 
-    --radius: 0.5rem;
+    --radius: 0.5rem; /* PRD: buttons rounded-lg (0.5rem). Default card/element radius derived to be rounded-md (0.375rem) */
 
-    --sidebar-background: 0 0% 98%;
+    --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Custom success state from PRD */
+    --success: 152 69% 31%; /* PRD: success #198754 */
+    --success-foreground: 0 0% 100%; /* White text for success background */
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar specific colors from PRD */
+    --sidebar-background: 218 33% 20%; /* PRD: sidebar #233044 */
+    --sidebar-foreground: 0 0% 100%;    /* PRD: sidebar text-white */
+    --sidebar-primary: 0 0% 100%;       /* For primary text/elements in sidebar (e.g., active nav item text) */
+    --sidebar-primary-foreground: 218 33% 20%; /* Text on sidebar-primary if it's a background, e.g., sidebar background color */
+    --sidebar-accent: 152 69% 31%;      /* PRD: accentSecondary #198754 (e.g., 'New' badge) */
+    --sidebar-accent-foreground: 0 0% 100%; /* White text for sidebar accent */
+    --sidebar-border: 218 30% 25%;      /* Subtle border for dark sidebar, derived from sidebar-background */
+    --sidebar-ring: 217 98% 52%;        /* PRD: accent #0D6EFD for focus rings in sidebar */
   }
 
   .dark {
+    /* Dark mode values preserved from original as PRD does not specify dark theme */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -79,6 +82,9 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    /* Assuming dark mode sidebar colors also need to be defined or adjusted if different from main dark theme */
+    /* Keeping existing dark sidebar vars, but they might need specific PRD values for dark mode if available */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -97,5 +103,8 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
